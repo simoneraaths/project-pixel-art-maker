@@ -1,8 +1,3 @@
-// Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
-
 const submitBtn = $('input[type="submit"]');
 const table = $('#pixelCanvas');
 const colorPicker = $('#colorPicker');
@@ -25,6 +20,12 @@ function makeGrid() {
   }
   for (x = 0; x < gridWidth; x++) {
     console.log("table column");
-    $('#pixelCanvas > tr').append( '<td>hi</td>');
+    $('#pixelCanvas > tr').append( '<td></td>');
   }
 }
+colorPicker.change(function(){
+  colorSelected = $(this).val();
+});
+table.on("click", "td", function() {
+  $( this ).css('background',colorSelected);
+});
